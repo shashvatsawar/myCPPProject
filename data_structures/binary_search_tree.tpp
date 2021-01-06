@@ -5,6 +5,7 @@
 using namespace std;
 
 template<class T>
+// I am fucking with your code
 BinaryNode<T> *BST<T>::BSTInsertUtility(BinaryNode<T>* root, T data){
     if(!root) return new BinaryNode<T>(data);
     if(data < root -> data) root -> left = BSTInsertUtility(root -> left, data);
