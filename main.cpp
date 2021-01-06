@@ -17,6 +17,7 @@ int main(int, char**) {
     myQueue.enQueue(4);
     myQueue.enQueue(10);
     myQueue.enQueue(15);
+    //hello world 
     myQueue.print();
     BST<int> binarySearchTree = BST<int>();
     for(int const &i: {7, 10, 5, 13, 9, 4, 0, 6}) binarySearchTree.insert(i);
