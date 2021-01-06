@@ -1,0 +1,9 @@
+D:/ShashvatJain/Documents/Projects/DS_algo/MyProject/build/CMakeFiles/NightlyMemoryCheck.dir
+D:/ShashvatJain/Documents/Projects/DS_algo/MyProject/build/CMakeFiles/Experimental.dir
+D:/ShashvatJain/Documents/Projects/DS_algo/MyProject/build/CMakeFiles/Continuous.dir
+D:/ShashvatJain/Documents/Projects/DS_algo/MyProject/build/CMakeFiles/Nightly.dir
+D:/ShashvatJain/Documents/Projects/DS_algo/MyProject/build/CMakeFiles/RUN_TESTS.dir
+D:/ShashvatJain/Documents/Projects/DS_algo/MyProject/build/CMakeFiles/myProject.dir
+D:/ShashvatJain/Documents/Projects/DS_algo/MyProject/build/CMakeFiles/PACKAGE.dir
+D:/ShashvatJain/Documents/Projects/DS_algo/MyProject/build/CMakeFiles/ALL_BUILD.dir
+D:/ShashvatJain/Documents/Projects/DS_algo/MyProject/build/CMakeFiles/ZERO_CHECK.dir

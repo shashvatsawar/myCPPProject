@@ -1,0 +1,10 @@
+^D:\SHASHVATJAIN\DOCUMENTS\PROJECTS\DS_ALGO\MYPROJECT\BUILD\CMAKEFILES\D4C061DBF4355FE91A215DDFF5043F0E\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/ShashvatJain/Documents/Projects/DS_algo/MyProject -BD:/ShashvatJain/Documents/Projects/DS_algo/MyProject/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/ShashvatJain/Documents/Projects/DS_algo/MyProject/build/myProject.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
