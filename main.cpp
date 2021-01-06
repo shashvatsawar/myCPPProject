@@ -25,7 +25,7 @@ int main(int, char**) {
     InOrderTraversal(binarySearchTree.root);
     BFTraversal(binarySearchTree.root);
     BinaryNode<int> *search = binarySearchTree.find(10);
-    
+
     return 0;
 }   
 
