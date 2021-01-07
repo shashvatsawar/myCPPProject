@@ -5,12 +5,15 @@ int getMid(int a, int b){
 }
 
 int getNoOfDigits(int a){
+    bool isNegative = false;
+    if (a < 0) isNegative = true;
     if (!a) return 1;
     int c = 0;
     while(a != 0){
         a = a / 10;
         c++;
     }
+    if (isNegative) return c+1;
     return c;
 }
 
@@ -68,7 +71,13 @@ void printLevelWithBlock(int* temp, int height, int level, int special){
     for(int i = 0 ;i < initialSpace ; i++) cout << " ";
     for(int i = power(2, height - level) - 1 ; i >= 0 ; i--){
         
-        if(special & power(2, i)) cout <<"| " <<temp[j++] << " |";
+        if(special & power(2, i)) {
+            
+            int digits = getNoOfDigits(temp[j]);
+            if (digits == 1) cout <<"| " <<temp[j++] << " |";
+            else if(digits == 2) cout << "| "<< temp[j++] << "|";
+            else cout << "|" << temp[j++] << "|";
+        }
         else cout << "|   |";
         for(int i = 0 ; i < midSpace ; i++) cout << " ";
     }

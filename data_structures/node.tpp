@@ -7,6 +7,11 @@ ostream &operator<<(ostream &os, BinaryNode<T> const &m){
     return os << m.data;
 }
 
+template<class T>
+ostream &operator<<(ostream &os, Node<T> const &m){
+    return os << m.data;
+}
+
 template <class T>
 int getHeight(BinaryNode<T>* root){
     if (root) return root -> height;
@@ -19,6 +24,12 @@ int getSize(BinaryNode<T>* root){
     else return 0;
 }
 
+template<class T>
+int getBalance(BinaryNode<T>* root){
+    if(!root) return 0;
+    return getHeight(root -> left) - getHeight(root -> right);
+}
+
 template <class T>
 void updateHeightAndSize(BinaryNode<T> *root){
     if(!root) return;
@@ -28,19 +39,6 @@ void updateHeightAndSize(BinaryNode<T> *root){
     }
     root -> height = max(getHeight(root -> left), getHeight(root -> right)) + 1;
     root -> size = getSize(root -> left) + getSize(root -> right) + 1;
-}
-
-template <class T>
-BinaryNode<T> *updateHeightAndSizeI(BinaryNode<T> *root){
-    if(!root) return root;
-    if(!root -> left && !root -> right) {
-        root -> height = 0;
-        root -> size = 1;
-        return root;
-    }
-    root -> height = max(getHeight(updateHeightAndSizeI(root -> left)), getHeight(updateHeightAndSizeI(root -> right))) + 1;
-    root -> size = getSize(updateHeightAndSizeI(root -> left)) + getSize(updateHeightAndSizeI(root -> right)) + 1;
-    return root;
 }
 
 template<class T>

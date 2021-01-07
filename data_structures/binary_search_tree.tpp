@@ -19,25 +19,19 @@ BinaryNode<T> *BST<T>::BSTDeleteUtility(BinaryNode<T>* root, T data){
     if(data < root -> data) root -> left = BSTDeleteUtility(root -> left, data);        
     else if(data > root -> data) root -> right = BSTDeleteUtility(root -> right, data);
     else{
-        if(!root -> right){
-            BinaryNode<int>* temp = root -> left; 
+        if(!root -> right || !root -> left){
+            BinaryNode<int>* temp;
+            if(!root -> right) temp = root -> left; 
+            else temp = root -> right;
             delete root;
             root = temp;
         }
         else{
             BinaryNode<T> *current = root -> right;
-            BinaryNode<T> *previous = nullptr;
-            while(current -> left){
-                previous = current;
-                current = current -> left;
-            }
-            if(!previous) root -> right = current -> right;
-            else previous -> left = current -> right;
+            while(current -> left) current = current -> left;
             root -> data = current -> data;
-            delete current;
-            
+            root -> right = BSTDeleteUtility(root -> right, current -> data);            
         }   
-        updateHeightAndSizeI(root);    
     }
     updateHeightAndSize(root);
     return root;
@@ -66,13 +60,18 @@ void BST<T>::print(bool block){
     int level = height;
     int previous = 1;
     while(!BFQueue.isEmpty()){
-        int size = BFQueue.size;
+        int size = power(2, height - level);
         int arraySize = size;
         int* temp = new int[arraySize];
         int index = 0;
         int a = 0;
         while(size){
+            if(!(previous & power(2, size - 1))) {
+                size--;
+                continue;
+            }
             BinaryNode<int> current = BFQueue.deQueue();
+
             temp[index++] = current.data;
             if (current.left){
                 BFQueue.enQueue(*(current.left));
@@ -85,7 +84,7 @@ void BST<T>::print(bool block){
             size--;
             
         } 
-        if (block) printLevelWithBlock(temp, height, level, previous);
+        if (block) printLevelWithBlock(temp, height, level, previous);        
         else printLevel(temp, height, level, previous);
         previous = a;
         level -= 1;

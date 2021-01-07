@@ -13,7 +13,7 @@ template<class T>
 LinkedList<T>::LinkedList(){
     this -> head = nullptr;
     this -> size = 0;
-    this -> head = nullptr;
+    this -> tail = nullptr;
 }
 template<class T>
 void LinkedList<T>::empty(){

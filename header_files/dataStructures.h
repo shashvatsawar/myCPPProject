@@ -35,13 +35,13 @@ template<class T>
 void updateHeightAndSize(BinaryNode<T>*);
 
 template<class T>
-BinaryNode<T>* updateHeightAndSizeI(BinaryNode<T>*);
-
-template<class T>
 int getHeight(BinaryNode<T>*);
 
 template<class T>
 int getSize(BinaryNode<T>*);
+
+template<class T>
+int getBalance(BinaryNode<T>*);
 
 template<class T>
 void InOrderTraversal(BinaryNode<T>* root);
@@ -54,8 +54,6 @@ void PostOrderTraversal(BinaryNode<T>* root);
 
 template<class T>
 void BFTraversal(BinaryNode<T>*);
-
-
 #include "../data_structures/node.tpp"
 
 template<class T>
@@ -116,16 +114,14 @@ class Stack{
 
 template <class T>
 class BST{
-    private:
+    protected:
         BinaryNode<T> *BSTInsertUtility(BinaryNode<T>*, T);
         BinaryNode<T> *BSTDeleteUtility(BinaryNode<T>*, T);
         BinaryNode<T> *BSTFindUtility(BinaryNode<T>*, T);
-        
     public:
         BinaryNode<T> *root;
         BST(T);
         BST();
-        BinaryNode<T> *getRoot();
         int height();
         BinaryNode<T> *find(T data);
         void insert(T data);
@@ -134,12 +130,24 @@ class BST{
 };
 #include "../data_structures/binary_search_tree.tpp"
 
-// template<class T>
-// class AVL: public BST{
-//     private:
-//     public:
-//         BinaryNode<T>* root;
-//         AVL();
-//         AVL(T);
+template<class T>
+class AVL{
+    private:
+        BinaryNode<T> *AVLInsertUtility(BinaryNode<T>*, T);
+        BinaryNode<T> *AVLDeleteUtility(BinaryNode<T>*, T);
+        BinaryNode<T> *AVLFindUtility(BinaryNode<T>*, T);
+        BinaryNode<T> *leftRotate(BinaryNode<T>*);
+        BinaryNode<T> *rightRotate(BinaryNode<T>*);
+        BinaryNode<T> *balancedTree(BinaryNode<T>*);
+    public:
+        BinaryNode<T>* root;
+        AVL();
+        AVL(T);
+        int height();
+        BinaryNode<T> *find(T data);
+        void insert(T data);
+        void deleteNode(T data);
+        void print(bool);
+};
 
-// };
+#include "../data_structures/avl.tpp"
