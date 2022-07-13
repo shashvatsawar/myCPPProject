@@ -1,2 +1,3 @@
 # myCPPProject
-This project is for visualising various Data Structure in stdout.
+This project is for visualising various Data Structures in stdout.
+
